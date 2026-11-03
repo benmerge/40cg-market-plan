@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>40th Century Grain Markets</title>
+<meta name="description" content="Markets, pop-ups and holiday ads for 40th Century Grain.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="40CG Markets">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#F2F4EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141815" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: seed-packet header, next-up strip, calendar + agenda, then booth guidance. */
+:root{
+  --bg:#F2F4EE; --surface:#FFFFFF; --ink:#1C231F; --muted:#5E6A62; --line:#D9DED5;
+  --corn:#3A3F8F; --corn-soft:#E4E5F4; --wheat:#9A6F1F; --wheat-soft:#F5EAD3;
+  --green:#2F7A4E; --green-soft:#DDEFE3; --warn:#A6501E; --warn-soft:#F7E3D6;
+  --display:"Zilla Slab",Georgia,serif; --body:"Work Sans",system-ui,-apple-system,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#141815; --surface:#1D231F; --ink:#E7ECE6; --muted:#9AA69E; --line:#323B35;
+  --corn:#A3A8F0; --corn-soft:#272A4D; --wheat:#E0B45A; --wheat-soft:#3A2F17;
+  --green:#6CC892; --green-soft:#1D3527; --warn:#F09B6A; --warn-soft:#3D2415; color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]{display:none!important}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px;display:grid;gap:24px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(28px,7vw,42px);font-weight:700}
+h2{font-size:22px;font-weight:700}
+h3{font-size:16px;font-weight:700}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--corn);outline-offset:2px}
+a{color:var(--corn)}
+.small{font-size:13px;color:var(--muted)}
+
+.top{display:grid;gap:14px;grid-template-columns:1fr auto;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:18px}
+.top p{margin:6px 0 0;color:var(--muted);max-width:52ch}
+@media (max-width:640px){.top{grid-template-columns:1fr}}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:9px 14px;font-weight:600;text-decoration:none;color:var(--ink);font-size:14px}
+.btn.primary{background:var(--corn);border-color:var(--corn);color:var(--bg)}
+.btn.ghost{background:transparent}
+.btn.sm{padding:5px 10px;font-size:12.5px}
+.btnrow{display:flex;gap:8px;flex-wrap:wrap}
+
+.install{background:var(--corn-soft);border-radius:10px;padding:12px 16px;display:grid;gap:4px;font-size:14px}
+.install b{color:var(--corn)}
+
+.next{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;background:var(--wheat-soft);border-radius:10px;padding:14px 18px}
+.next .days{font-family:var(--display);font-size:40px;font-weight:700;color:var(--wheat);line-height:1;font-variant-numeric:tabular-nums;text-align:center;min-width:56px}
+.next .days span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+.plan{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:860px){.plan{grid-template-columns:1fr}}
+.cal{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
+.calhead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+.calhead .nav{display:flex;gap:6px}
+.calhead button{border:1px solid var(--line);background:transparent;border-radius:6px;width:36px;height:36px;font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}
+.dow{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted);text-align:center;padding-bottom:4px}
+.day{min-height:64px;border-radius:6px;padding:4px;background:var(--bg);display:flex;flex-direction:column;gap:2px;border:1px solid transparent;text-align:left;min-width:0}
+.day.out{opacity:.35}
+.day.today{border-color:var(--ink)}
+.day.sel{border-color:var(--corn);box-shadow:inset 0 0 0 1px var(--corn)}
+.day .n{font-size:12px;font-variant-numeric:tabular-nums;font-weight:600}
+.chip{font-size:10.5px;line-height:1.25;border-radius:3px;padding:1px 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.t-market{background:var(--wheat-soft);color:var(--wheat)}
+.t-ad{background:var(--corn-soft);color:var(--corn)}
+.t-task{background:var(--green-soft);color:var(--green)}
+@media (max-width:480px){.day{min-height:48px}.chip{font-size:0;height:6px;padding:0}}
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+
+.agenda{display:grid;gap:10px}
+.agenda-head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:transparent;padding:6px 10px;font-size:13px}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.ev{display:grid;grid-template-columns:52px 1fr;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px}
+.ev .date{font-family:var(--mono);text-align:center;border-right:1px solid var(--line);padding-right:10px}
+.ev .date b{display:block;font-family:var(--display);font-size:24px;line-height:1}
+.ev .date small{font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.ev .body{min-width:0;display:grid;gap:6px}
+.ev .meta{font-size:13px;color:var(--muted)}
+.pills{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.pill{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;padding:2px 7px;border-radius:99px;text-transform:uppercase}
+.s-planned{background:var(--corn-soft);color:var(--corn)}
+.s-confirm{background:var(--warn-soft);color:var(--warn)}
+.s-done{background:var(--green-soft);color:var(--green)}
+.ev.past{opacity:.6}
+.empty{border:1px dashed var(--line);border-radius:10px;padding:18px;color:var(--muted);text-align:center}
+
+.guide{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:860px){.guide{grid-template-columns:1fr}}
+.panel{display:grid;gap:10px;align-content:start}
+.panel > p{margin:0;color:var(--muted);font-size:14px}
+.tier{border-top:1px solid var(--line);padding-top:10px;display:grid;gap:4px}
+.tier ul{margin:0;padding:0;list-style:none;display:grid;gap:2px}
+.tier li{display:flex;justify-content:space-between;gap:12px;font-size:14px}
+.tier li span:last-child{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.checks{display:grid}
+.check{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--line);font-size:14px}
+.check input{margin-top:3px;accent-color:var(--green);width:18px;height:18px;flex:none}
+.check.ok span{text-decoration:line-through;color:var(--muted)}
+.check .x{margin-left:auto;border:0;background:transparent;color:var(--muted);font-size:18px;line-height:1;padding:0 4px}
+.addrow{display:flex;gap:6px;margin-top:6px}
+.addrow input{flex:1;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);font-size:16px}
+.contact{border-top:1px solid var(--line);padding-top:10px;font-size:14px;display:grid;gap:2px}
+.contact .addr{font-family:var(--mono);font-size:12.5px;user-select:all;-webkit-user-select:all;word-break:break-all}
+.note{font-size:13.5px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">Markets &amp; pop-ups · Sauk Valley</div>
+      <h1>40th Century Grain</h1>
+      <p>Our plan for markets, booths and holiday ads.</p>
+    </div>
+    <div class="btnrow">
+      <a class="btn primary" id="subscribe" href="events.ics">Subscribe in Apple Calendar</a>
+      <a class="btn ghost" href="events.ics" download>Download all (.ics)</a>
+    </div>
+  </header>
+
+  <div class="install" id="installTip" hidden>
+    <div><b>Put this on your home screen.</b> In Safari, tap the Share button, then <b>Add to Home Screen</b>. It opens like an app and works offline.</div>
+  </div>
+  <div class="install" id="subTip">
+    <div><b>Subscribe once and the calendar keeps itself updated.</b> New or changed events show up on your iPhone automatically. Use "Add to Calendar" on a single event if you'd rather pick and choose.</div>
+  </div>
+
+  <section class="next" id="nextUp" aria-live="polite">
+    <div class="days">–<span>days</span></div>
+    <div><div class="eyebrow">Next up</div><div>Loading the plan…</div></div>
+  </section>
+
+  <section class="plan">
+    <div class="cal">
+      <div class="calhead">
+        <h2 id="monthLabel">Month</h2>
+        <div class="nav">
+          <button id="prevM" aria-label="Previous month">‹</button>
+          <button id="nextM" aria-label="Next month">›</button>
+        </div>
+      </div>
+      <div class="grid" id="calGrid"></div>
+      <div class="legend">
+        <span><i style="background:var(--wheat)"></i>Market / booth</span>
+        <span><i style="background:var(--corn)"></i>Ad or promo</span>
+        <span><i style="background:var(--green)"></i>To-do / deadline</span>
+      </div>
+    </div>
+
+    <div class="agenda">
+      <div class="agenda-head">
+        <h2 id="agendaTitle">Coming up</h2>
+        <div class="seg" role="group" aria-label="Which events">
+          <button id="fUp" aria-pressed="true">Upcoming</button>
+          <button id="fAll" aria-pressed="false">All</button>
+        </div>
+      </div>
+      <div id="agendaList" class="agenda"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow" style="margin-bottom:6px">Guidance</div>
+    <div class="guide">
+      <div class="panel">
+        <h2>What to put out front</h2>
+        <p>Match the product to where people meet us. Small items sell at booths and in online ads; bundles are for print and business gifting.</p>
+        <div class="tier">
+          <h3>Stocking stuffers · digital ads &amp; impulse buys</h3>
+          <ul><li><span>Field &amp; Fromage Perennial Granola</span><span>$5.99</span></li><li><span>Chocolate Chip Cookies</span><span>$6.99</span></li></ul>
+        </div>
+        <div class="tier">
+          <h3>Mid-range · lifestyle gift guides</h3>
+          <ul><li><span>Blue Corn &amp; Kernza Hush Puppy Mix</span><span>$9.99</span></li><li><span>Kernza Miso Cookie Mix</span><span>$10.49</span></li></ul>
+        </div>
+        <div class="tier">
+          <h3>Premium bundles · print &amp; corporate gifts</h3>
+          <ul><li><span>Bread Lover's Bundle</span><span>$17.00</span></li><li><span>Cookie Lover's Trio</span><span>$18.00</span></li><li><span>Kernza Lover's Trio</span><span>$25.00</span></li></ul>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Booth day checklist</h2>
+        <p>Tick items off as you pack. This list is saved on your phone.</p>
+        <div id="checks" class="checks"></div>
+        <form class="addrow" id="addCheck">
+          <input id="checkInput" placeholder="Add an item" aria-label="New checklist item">
+          <button class="btn" type="submit">Add</button>
+        </form>
+        <div class="btnrow"><button class="btn ghost sm" id="resetChecks">Untick everything</button></div>
+      </div>
+
+      <div class="panel">
+        <h2>Running a booth</h2>
+        <div class="note"><b>Sample, then sell.</b> Hand out a taste, mention the one product that fits the season, and point to the bundles for gifts.</div>
+        <div class="note"><b>Split the jobs.</b> One person samples and talks; the other runs the card reader and restocks. Swap every hour.</div>
+        <div class="note"><b>After each event,</b> jot down what sold out, what people asked for, and how many samples went out.</div>
+        <h3 style="margin-top:6px">Contacts</h3>
+        <div class="contact"><b>Whiteside News Sentinel</b> · print gift guide<br>Jennifer Heintzelman, Publisher<span class="addr">jheintzelman@shawmedia.com</span></div>
+        <div class="contact"><b>AroundPtown.com</b> · $75 advertorial, 1,000 characters + 2 photos<br>Nathan Stahr, Advertising Director<span class="addr">nathan@aroundptown.com</span></div>
+        <div class="contact"><b>Sauk Valley Area Chamber</b> · $100 ad-blast to ~1,500 businesses<span class="addr">saukvalleyareachamber.com</span></div>
+        <div class="contact"><b>Rock Falls Chamber</b> · Hometown Holidays booths<span class="addr">815-625-4500</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="foot">40th Century Grain · market plan</footer>
+</div>
+
+<script>
+(function(){
+  var TYPES={market:"Market / booth",ad:"Ad or promo",task:"To-do"};
+  var STATUS={planned:"Planned",confirm:"Confirm",done:"Done"};
+  var DEFAULT_CHECKS=["Table, tablecloth and banner","Card reader charged, phone charged, backup cable","Price signs for every product","Sample cups, napkins, tongs, hand sanitizer","Stock: granola, cookies, mixes, bundles","Bags and small cash float","Extension cord and booth light (evening events)"];
+  var state={events:[],month:null,sel:null,filter:"up"};
+  var today=new Date(); today.setHours(0,0,0,0);
+  state.month=new Date(today.getFullYear(),today.getMonth(),1);
+  var $=function(id){return document.getElementById(id)};
+  function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+  function parse(d){var p=(d||"").split("-");return p.length===3?new Date(+p[0],+p[1]-1,+p[2]):null}
+  function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+  function fmtTime(t){if(!t)return"";var p=t.split(":"),h=+p[0],m=p[1];var ap=h>=12?"PM":"AM";h=h%12||12;return h+(m!=="00"?":"+m:"")+" "+ap}
+  function sorted(){return state.events.slice().sort(function(a,b){return (a.date||"").localeCompare(b.date||"")||(a.start||"").localeCompare(b.start||"")})}
+  function longDate(e){var d=parse(e.date);if(!d)return"";var s=d.toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"});if(e.start)s+=", "+fmtTime(e.start)+(e.end?"–"+fmtTime(e.end):"");return s}
+
+  /* Subscribe link: webcal:// makes Apple Calendar subscribe instead of importing once */
+  var base=location.href.replace(/[#?].*$/,"").replace(/[^\/]*$/,"");
+  if(location.protocol==="https:"){$("subscribe").href="webcal://"+base.replace(/^https:\/\//,"")+"events.ics"}
+
+  var standalone=window.matchMedia("(display-mode: standalone)").matches||navigator.standalone;
+  var ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+  $("installTip").hidden=!(ios&&!standalone);
+
+  function renderNext(){
+    var up=sorted().filter(function(e){var d=parse(e.date);return d&&d>=today&&e.status!=="done"});
+    var box=$("nextUp");
+    if(!up.length){box.innerHTML='<div class="days">–<span>days</span></div><div><div class="eyebrow">Next up</div><div>Nothing scheduled yet.</div></div>';return}
+    var mk=up.filter(function(e){return e.type==="market"})[0]||up[0];
+    var n=Math.round((parse(mk.date)-today)/864e5);
+    box.innerHTML='<div class="days">'+(n===0?"Today":n)+'<span>'+(n===0?"":n===1?"day":"days")+'</span></div><div><div class="eyebrow">Next '+(mk.type==="market"?"market":"item")+'</div><div style="font-weight:600">'+esc(mk.title)+'</div><div class="small">'+esc(longDate(mk))+(mk.location?" · "+esc(mk.location):"")+'</div></div>';
+  }
+
+  function renderCal(){
+    var m=state.month,g=$("calGrid");
+    $("monthLabel").textContent=m.toLocaleDateString(undefined,{month:"long",year:"numeric"});
+    var start=new Date(m);start.setDate(1-m.getDay());
+    var byDay={};state.events.forEach(function(e){(byDay[e.date]=byDay[e.date]||[]).push(e)});
+    var h=["S","M","T","W","T","F","S"].map(function(d){return'<div class="dow">'+d+'</div>'}).join("");
+    for(var i=0;i<42;i++){
+      var d=new Date(start);d.setDate(start.getDate()+i);var k=iso(d);
+      if(i===35&&d.getMonth()!==m.getMonth())break;
+      var list=byDay[k]||[];
+      var cls="day"+(d.getMonth()!==m.getMonth()?" out":"")+(+d===+today?" today":"")+(state.sel===k?" sel":"");
+      var chips=list.map(function(e){return'<span class="chip t-'+esc(e.type)+'">'+esc(e.title)+'</span>'}).join("");
+      h+='<button class="'+cls+'" data-day="'+k+'" aria-label="'+d.toDateString()+(list.length?", "+list.length+" items":"")+'"><span class="n">'+d.getDate()+'</span>'+chips+'</button>';
+    }
+    g.innerHTML=h;
+    g.querySelectorAll("[data-day]").forEach(function(b){b.onclick=function(){var k=b.dataset.day;state.sel=state.sel===k?null:k;render()}});
+  }
+  $("prevM").onclick=function(){state.month=new Date(state.month.getFullYear(),state.month.getMonth()-1,1);renderCal()};
+  $("nextM").onclick=function(){state.month=new Date(state.month.getFullYear(),state.month.getMonth()+1,1);renderCal()};
+
+  function renderAgenda(){
+    var list=sorted();
+    if(state.sel){list=list.filter(function(e){return e.date===state.sel});$("agendaTitle").textContent=parse(state.sel).toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"})}
+    else if(state.filter==="up"){list=list.filter(function(e){var d=parse(e.date);return (d&&d>=today)||e.status==="confirm"});$("agendaTitle").textContent="Coming up"}
+    else $("agendaTitle").textContent="Everything";
+    $("fUp").setAttribute("aria-pressed",String(state.filter==="up"&&!state.sel));
+    $("fAll").setAttribute("aria-pressed",String(state.filter==="all"&&!state.sel));
+    var el=$("agendaList");
+    if(!list.length){el.innerHTML='<div class="empty">'+(state.sel?"Nothing on this day.":"Nothing scheduled yet.")+'</div>';return}
+    el.innerHTML=list.map(function(e){
+      var d=parse(e.date)||today, past=d<today;
+      return '<article class="ev'+(past&&e.status!=="confirm"?" past":"")+'"><div class="date"><small>'+d.toLocaleDateString(undefined,{month:"short"})+'</small><b>'+d.getDate()+'</b><small>'+d.toLocaleDateString(undefined,{weekday:"short"})+'</small></div><div class="body"><div style="font-weight:600">'+esc(e.title)+'</div><div class="meta">'+esc([e.start?fmtTime(e.start)+(e.end?"–"+fmtTime(e.end):""):"",e.location,e.cost?"$"+e.cost:""].filter(Boolean).join(" · "))+'</div>'+(e.notes?'<div class="meta">'+esc(e.notes)+'</div>':'')+'<div class="pills"><span class="pill t-'+esc(e.type)+'">'+esc(TYPES[e.type]||e.type)+'</span><span class="pill s-'+esc(e.status||"planned")+'">'+esc(STATUS[e.status]||"Planned")+'</span>'+(past?'':'<a class="btn sm" href="events/'+encodeURIComponent(e.id)+'.ics">Add to Calendar</a>')+'</div></div></article>';
+    }).join("");
+  }
+  $("fUp").onclick=function(){state.filter="up";state.sel=null;render()};
+  $("fAll").onclick=function(){state.filter="all";state.sel=null;render()};
+
+  /* Checklist, saved per device */
+  var KEY="40cg-checklist-v1", checks;
+  function loadChecks(){try{checks=JSON.parse(localStorage.getItem(KEY))}catch(e){}if(!Array.isArray(checks))checks=DEFAULT_CHECKS.map(function(t){return{text:t,done:false}})}
+  function saveChecks(){try{localStorage.setItem(KEY,JSON.stringify(checks))}catch(e){}}
+  function renderChecks(){
+    var el=$("checks");
+    if(!checks.length){el.innerHTML='<div class="small">No items. Add what you pack for every booth.</div>';return}
+    el.innerHTML=checks.map(function(c,i){return'<label class="check'+(c.done?" ok":"")+'"><input type="checkbox" data-c="'+i+'"'+(c.done?" checked":"")+'><span>'+esc(c.text)+'</span><button type="button" class="x" data-x="'+i+'" aria-label="Remove '+esc(c.text)+'">×</button></label>'}).join("");
+    el.querySelectorAll("[data-c]").forEach(function(b){b.onchange=function(){checks[+b.dataset.c].done=b.checked;saveChecks();renderChecks()}});
+    el.querySelectorAll("[data-x]").forEach(function(b){b.onclick=function(ev){ev.preventDefault();checks.splice(+b.dataset.x,1);saveChecks();renderChecks()}});
+  }
+  $("addCheck").onsubmit=function(ev){ev.preventDefault();var t=$("checkInput").value.trim();if(!t)return;$("checkInput").value="";checks.push({text:t,done:false});saveChecks();renderChecks()};
+  $("resetChecks").onclick=function(){checks.forEach(function(c){c.done=false});saveChecks();renderChecks()};
+  loadChecks();
+
+  function render(){renderNext();renderCal();renderAgenda()}
+  render();renderChecks();
+
+  fetch("events.json",{cache:"no-cache"}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(list){
+    state.events=list;render();
+  }).catch(function(){
+    $("nextUp").innerHTML='<div class="days">–<span>days</span></div><div><div class="eyebrow">Next up</div><div>Couldn\'t load events. Check your connection and reopen the app.</div></div>';
+  });
+
+  if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
+})();
+</script>
+</body>
+</html>
