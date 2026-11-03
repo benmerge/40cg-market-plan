@@ -385,11 +385,12 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
     lastFocus=document.activeElement;
     var d=parse(e.date), past=d&&d<today;
     var contacts=e.contacts||[], first=contacts[0]||{};
-    var phone=(contacts.filter(function(c){return c.phone})[0]||{}).phone;
-    var email=(contacts.filter(function(c){return c.email})[0]||{}).email;
+    var pc=contacts.filter(function(c){return c.phone})[0], ec=contacts.filter(function(c){return c.email})[0];
+    var phone=pc&&pc.phone, email=ec&&ec.email;
+    function who(c){return contacts.length>1?'<small style="display:block;font-weight:500;font-size:11.5px;opacity:.8">'+esc(c.name)+'</small>':''}
     var acts=[];
-    if(phone)acts.push('<a class="act main" href="'+tel(phone)+'">'+IC.call+'Call</a>');
-    if(email)acts.push('<a class="act'+(phone?'':' main')+'" href="mailto:'+esc(email)+'?subject='+encodeURIComponent("40 Century Grain: "+e.title)+'">'+IC.mail+'Email</a>');
+    if(phone)acts.push('<a class="act main" href="'+tel(phone)+'">'+IC.call+'<span>Call'+who(pc)+'</span></a>');
+    if(email)acts.push('<a class="act'+(phone?'':' main')+'" href="mailto:'+esc(email)+'?subject='+encodeURIComponent("40 Century Grain: "+e.title)+'">'+IC.mail+'<span>Email'+who(ec)+'</span></a>');
     if(e.address)acts.push('<a class="act" href="'+mapUrl(e.address)+'" target="_blank" rel="noopener">'+IC.map+'Directions</a>');
     if(!past)acts.push('<a class="act" href="events/'+encodeURIComponent(e.id)+'.ics">'+IC.cal+'Add to Calendar</a>');
     var h='<div class="sheet-top"><div><div class="pills" style="margin-bottom:6px"><span class="pill t-'+esc(e.type)+'">'+esc(TYPES[e.type]||e.type)+'</span><span class="pill s-'+esc(e.status||"planned")+'">'+esc(STATUS[e.status]||"Planned")+'</span></div><h2 id="sheetTitle">'+esc(e.title)+'</h2></div><button class="closeb" id="closeSheet" aria-label="Close">×</button></div>';
