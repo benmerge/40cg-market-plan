@@ -62,7 +62,7 @@ def vevent(e, stamp):
 
 
 def calendar(events, stamp, name):
-    lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//40th Century Grain//Market Plan//EN",
+    lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//40 Century Grain//Market Plan//EN",
              "CALSCALE:GREGORIAN", "METHOD:PUBLISH", f"X-WR-CALNAME:{name}",
              "X-WR-TIMEZONE:America/Chicago", "REFRESH-INTERVAL;VALUE=DURATION:PT6H",
              "X-PUBLISHED-TTL:PT6H"] + TZ
@@ -77,11 +77,11 @@ def main():
         events = json.load(f)
     stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     with open(os.path.join(HERE, "events.ics"), "w", newline="") as f:
-        f.write(calendar(events, stamp, "40th Century Grain"))
+        f.write(calendar(events, stamp, "40 Century Grain"))
     os.makedirs(os.path.join(HERE, "events"), exist_ok=True)
     for e in events:
         with open(os.path.join(HERE, "events", e["id"] + ".ics"), "w", newline="") as f:
-            f.write(calendar([e], stamp, "40th Century Grain"))
+            f.write(calendar([e], stamp, "40 Century Grain"))
     print(f"Wrote events.ics and {len(events)} event files")
 
 

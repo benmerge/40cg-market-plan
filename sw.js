@@ -1,8 +1,8 @@
 // Offline support: the app shell is cached; events are fetched fresh when online
 // and fall back to the last saved copy when offline.
-const CACHE = "40cg-v3";
+const CACHE = "40cg-v4";
 const SHELL = ["./", "index.html", "manifest.webmanifest", "events.json",
-  "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png"];
+  "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png", "icons/logo.svg"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));

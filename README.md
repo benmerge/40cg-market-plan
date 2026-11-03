@@ -1,6 +1,6 @@
-# 40th Century Grain Markets
+# 40 Century Grain Markets
 
-A small installable web app for planning 40th Century Grain's markets, pop-ups and holiday ads.
+A small installable web app for planning 40 Century Grain's markets, pop-ups and holiday ads.
 
 ## Using it
 - **Install on iPhone:** open the site in Safari → Share → Add to Home Screen.

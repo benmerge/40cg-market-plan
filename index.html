@@ -3,31 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>40th Century Grain Markets</title>
-<meta name="description" content="Markets, pop-ups and holiday ads for 40th Century Grain.">
+<title>40 Century Grain Markets</title>
+<meta name="description" content="Markets, pop-ups and holiday ads for 40 Century Grain.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="icon" href="icons/icon-192.png">
+<link rel="icon" href="icons/logo.svg" type="image/svg+xml">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="40CG Markets">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="theme-color" content="#F2F4EE" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#141815" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FDF4E9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#182326" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;900&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
 /* Layout: seed-packet header, next-up strip, calendar + agenda, then booth guidance. */
 :root{
-  --bg:#F2F4EE; --surface:#FFFFFF; --ink:#1C231F; --muted:#5E6A62; --line:#D9DED5;
-  --corn:#3A3F8F; --corn-soft:#E4E5F4; --wheat:#9A6F1F; --wheat-soft:#F5EAD3;
+  /* Brand: black #182326, orange #EB954D, tan #FDF4E9 (40 Century Grain logo pack) */
+  --bg:#FDF4E9; --surface:#FFFFFF; --ink:#182326; --muted:#5B6466; --line:#EADFD0;
+  --corn:#182326; --corn-soft:#E6E8E6; --wheat:#B35E19; --wheat-soft:#FBE3CC;
   --green:#2F7A4E; --green-soft:#DDEFE3; --warn:#A6501E; --warn-soft:#F7E3D6;
-  --display:"Zilla Slab",Georgia,serif; --body:"Work Sans",system-ui,-apple-system,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --display:"Red Hat Display",system-ui,-apple-system,sans-serif; --body:"Red Hat Display",system-ui,-apple-system,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root{
-  --bg:#141815; --surface:#1D231F; --ink:#E7ECE6; --muted:#9AA69E; --line:#323B35;
-  --corn:#A3A8F0; --corn-soft:#272A4D; --wheat:#E0B45A; --wheat-soft:#3A2F17;
+  --bg:#182326; --surface:#213036; --ink:#FDF4E9; --muted:#A9B2B0; --line:#34454B;
+  --corn:#FDF4E9; --corn-soft:#2E3E44; --wheat:#EB954D; --wheat-soft:#3D2A1A;
   --green:#6CC892; --green-soft:#1D3527; --warn:#F09B6A; --warn-soft:#3D2415; color-scheme:dark}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -36,7 +38,9 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font
 [hidden]{display:none!important}
 .wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px;display:grid;gap:24px}
 h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
-h1{font-size:clamp(28px,7vw,42px);font-weight:700}
+h1{font-size:clamp(28px,7vw,42px);font-weight:900;letter-spacing:-.01em}
+.brand{display:flex;gap:14px;align-items:center}
+.brand img{width:72px;height:72px;flex:none}
 h2{font-size:22px;font-weight:700}
 h3{font-size:16px;font-weight:700}
 .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
@@ -127,10 +131,13 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
 <body>
 <div class="wrap">
   <header class="top">
-    <div>
-      <div class="eyebrow">Markets &amp; pop-ups · Sauk Valley</div>
-      <h1>40th Century Grain</h1>
-      <p>Our plan for markets, booths and holiday ads.</p>
+    <div class="brand">
+      <img src="icons/logo.svg" alt="40 Century Grain logo" width="72" height="72">
+      <div>
+        <div class="eyebrow">Markets &amp; pop-ups · Sauk Valley</div>
+        <h1>40 Century Grain</h1>
+        <p>Our plan for markets, booths and holiday ads.</p>
+      </div>
     </div>
     <div class="btnrow">
       <a class="btn primary" id="subscribe" href="events.ics">Subscribe in Apple Calendar</a>
@@ -233,7 +240,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
     </div>
   </section>
 
-  <footer id="foot">40th Century Grain · market plan</footer>
+  <footer id="foot">40 Century Grain · market plan</footer>
 </div>
 
 <script>
