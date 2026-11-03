@@ -26,11 +26,11 @@ END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:krista-reply@40cg-market-plan
-DTSTAMP:20261103T234639Z
+DTSTAMP:20261103T235820Z
 SUMMARY:40CG: Tell Krista we're in for the Sterling showcase
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
-LOCATION:kmorthland@sterlingdevelopment.org
+LOCATION:The Kitchen Incubator of NW Illinois
 DESCRIPTION:Space is limited and fills quickly. She adds participants to Ma
  in Street's info listing.
 END:VEVENT

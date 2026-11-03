@@ -26,13 +26,13 @@ END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:rockfalls-walk@40cg-market-plan
-DTSTAMP:20261103T234639Z
+DTSTAMP:20261103T235820Z
 SUMMARY:40CG: Rock Falls Christmas Walk booth
 DTSTART;TZID=America/Chicago:20261120T170000
 DTEND;TZID=America/Chicago:20261120T200000
 LOCATION:The Foundry\, 201 W. 1st St.\, Rock Falls\, IL
 DESCRIPTION:Indoor sampling booth. Date not yet posted for 2026\; confirm w
- ith the Rock Falls Chamber at 815-625-4500. Cost: $27
+ ith the Rock Falls Chamber. Cost: $27
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Booth tomorrow

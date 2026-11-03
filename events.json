@@ -8,8 +8,27 @@
     "type": "ad",
     "status": "confirm",
     "location": "Print holiday gift guide",
-    "cost": "",
-    "notes": "Pitch the $25 Kernza Lover's Trio. Asking whether guide space is still open. Contact Jennifer Heintzelman."
+    "cost": "Ask for rates",
+    "notes": "Pitch the $25 Kernza® Lover's Trio. Asking whether guide space is still open. Contact Jennifer Heintzelman.",
+    "summary": "A spot in the Whiteside News Sentinel's printed holiday shopping guide. Print reaches older shoppers who buy gifts locally. The original plan was to book by early October, so ask whether there's still room this year or another print holiday placement before Christmas.",
+    "feature": [
+      "Kernza® Lover's Trio ($25)",
+      "Cookie Lover's Trio ($18)"
+    ],
+    "steps": [
+      "Email Jennifer to ask if guide space is open",
+      "Get rates, sizes, specs and the artwork deadline",
+      "Send print-ready product photo and copy",
+      "Proof the ad before it runs"
+    ],
+    "contacts": [
+      {
+        "name": "Jennifer Heintzelman",
+        "role": "Publisher, Shaw Media",
+        "email": "jheintzelman@shawmedia.com"
+      }
+    ],
+    "links": []
   },
   {
     "id": "svacc-book",
@@ -19,9 +38,34 @@
     "end": "",
     "type": "task",
     "status": "confirm",
-    "location": "Sauk Valley Area Chamber",
+    "location": "Sauk Valley Area Chamber of Commerce",
     "cost": "100",
-    "notes": "Non-member rate. Check whether it's booked: saukvalleyareachamber.com/marketing-opportunities"
+    "notes": "Non-member rate. Check whether it's booked.",
+    "summary": "An exclusive email sent by the Chamber to about 1,500 local business contacts. The goal is corporate holiday gifting: businesses buying for clients and staff. Book it so it goes out in early November, before gift budgets are spent.",
+    "feature": [
+      "Kernza® Lover's Trio ($25)",
+      "Pantry Builder ($25)",
+      "Cookie Lover's Trio ($18)"
+    ],
+    "steps": [
+      "Call the Chamber to book the exclusive ad-blast",
+      "Confirm the send date",
+      "Send the email copy and photos",
+      "Offer a bulk-order option for 10+ gifts"
+    ],
+    "contacts": [
+      {
+        "name": "Sauk Valley Area Chamber",
+        "role": "Marketing opportunities",
+        "phone": "815-625-2400"
+      }
+    ],
+    "links": [
+      {
+        "label": "Chamber marketing options",
+        "url": "https://www.saukvalleyareachamber.com/marketing-opportunities/"
+      }
+    ]
   },
   {
     "id": "rockfalls-register",
@@ -31,9 +75,90 @@
     "end": "",
     "type": "task",
     "status": "confirm",
-    "location": "rockfallschamber.com/hometownholidays",
+    "location": "Rock Falls Chamber of Commerce",
     "cost": "27",
-    "notes": "Non-member booth is $25 ($27 online). Check whether registration went through. Questions: 815-625-4500."
+    "notes": "Non-member booth is $25 ($27 online). Check whether registration went through.",
+    "summary": "Register for an indoor booth at The Foundry for the Hometown Holidays Christmas Walk. Chamber members pay $15 ($17 online); non-members pay $25 ($27 online). No confirmation email was found, so check whether this was done.",
+    "steps": [
+      "Register online or call the Chamber",
+      "Confirm the 2026 date and setup time",
+      "Ask about table size and power"
+    ],
+    "contacts": [
+      {
+        "name": "Rock Falls Chamber of Commerce",
+        "role": "Hometown Holidays booths",
+        "phone": "815-625-4500"
+      }
+    ],
+    "links": [
+      {
+        "label": "Register for a booth",
+        "url": "https://www.rockfallschamber.com/hometownholidays"
+      },
+      {
+        "label": "Hometown Holidays info",
+        "url": "https://visitrockfalls.com/hometown-holidays/"
+      }
+    ]
+  },
+  {
+    "id": "krista-reply",
+    "title": "Tell Krista we're in for the Sterling showcase",
+    "date": "2026-11-04",
+    "start": "",
+    "end": "",
+    "type": "task",
+    "status": "planned",
+    "location": "The Kitchen Incubator of NW Illinois",
+    "cost": "",
+    "notes": "Space is limited and fills quickly. She adds participants to Main Street's info listing.",
+    "summary": "Krista is running a Kitchen Incubator Showcase pop-up at Sterling's Sights & Sounds on Friday, Dec 4. Space is limited, so reply soon to get a spot and be listed in Sterling Main Street's event info.",
+    "steps": [
+      "Email Krista to say we want a spot",
+      "Ask for setup time and table space",
+      "Ask whether we can sell, or sample only"
+    ],
+    "contacts": [
+      {
+        "name": "Krista Morthland",
+        "role": "Director, The Kitchen Incubator of NW Illinois",
+        "email": "kmorthland@sterlingdevelopment.org"
+      }
+    ],
+    "links": []
+  },
+  {
+    "id": "sterling-mainstreet",
+    "title": "Call Sterling Main Street about indoor market space",
+    "date": "2026-11-04",
+    "start": "",
+    "end": "",
+    "type": "task",
+    "status": "planned",
+    "location": "Sterling Main Street",
+    "cost": "",
+    "notes": "Say we're a Kitchen Incubator client. They're usually full; ask to join the waiting list.",
+    "summary": "Sterling Main Street runs the downtown indoor market. Krista says it's usually at capacity, but there's a waiting list. Mention that we're a Kitchen Incubator client.",
+    "steps": [
+      "Call and ask about indoor market space",
+      "Mention we're a Kitchen Incubator client",
+      "If full, get on the waiting list",
+      "Ask what other holiday events take vendors"
+    ],
+    "contacts": [
+      {
+        "name": "Sterling Main Street",
+        "role": "Indoor market and downtown events",
+        "phone": "815-626-8610"
+      }
+    ],
+    "links": [
+      {
+        "label": "Sterling Main Street events",
+        "url": "https://sterlingmainstreet.org/events/"
+      }
+    ]
   },
   {
     "id": "svacc-send",
@@ -45,7 +170,25 @@
     "status": "planned",
     "location": "~1,500 local businesses",
     "cost": "",
-    "notes": "Corporate gifting push: lead with the bundles. Exact send date is set with the Chamber."
+    "notes": "Corporate gifting push: lead with the bundles. Exact send date is set with the Chamber.",
+    "summary": "The Chamber's exclusive email to local businesses. This is a target date; the real one depends on when it's booked. Watch for orders and questions in the days after it goes out.",
+    "feature": [
+      "Kernza® Lover's Trio ($25)",
+      "Pantry Builder ($25)",
+      "Cookie Lover's Trio ($18)"
+    ],
+    "steps": [
+      "Check that the email went out",
+      "Answer replies and bulk-order questions within a day"
+    ],
+    "contacts": [
+      {
+        "name": "Sauk Valley Area Chamber",
+        "role": "Ad-blast",
+        "phone": "815-625-2400"
+      }
+    ],
+    "links": []
   },
   {
     "id": "rockfalls-walk",
@@ -56,8 +199,45 @@
     "type": "market",
     "status": "confirm",
     "location": "The Foundry, 201 W. 1st St., Rock Falls, IL",
+    "address": "201 W 1st St, Rock Falls, IL 61071",
     "cost": "27",
-    "notes": "Indoor sampling booth. Date not yet posted for 2026; confirm with the Rock Falls Chamber at 815-625-4500."
+    "notes": "Indoor sampling booth. Date not yet posted for 2026; confirm with the Rock Falls Chamber.",
+    "summary": "An indoor booth at The Foundry during Rock Falls' Hometown Holidays Christmas Walk. Local business booths are set up inside. Sample, sell small items and point people to 40centurygrain.com for the rest. The chamber still lists last year's date (Nov 21), so confirm the 2026 date.",
+    "feature": [
+      "Peppernut Cookies ($6.99)",
+      "Meadow & Honey granola, holiday flavor with clove ($5.99)",
+      "Cookie Lover's Trio ($18)",
+      "Field & Fromage savory granola ($5.99)",
+      "Kernza® Lover's Trio ($25)"
+    ],
+    "bring": [
+      "Table, tablecloth and banner",
+      "Card reader and phone, both charged",
+      "Samples, cups, napkins, sanitizer",
+      "Price signs",
+      "QR code sign for 40centurygrain.com",
+      "Bags and a small cash float",
+      "Extension cord and booth light"
+    ],
+    "steps": [
+      "Confirm the date and setup time",
+      "Pack the night before",
+      "Arrive an hour early to set up",
+      "Afterward: note what sold out and what people asked for"
+    ],
+    "contacts": [
+      {
+        "name": "Rock Falls Chamber of Commerce",
+        "role": "Event organizer",
+        "phone": "815-625-4500"
+      }
+    ],
+    "links": [
+      {
+        "label": "Hometown Holidays info",
+        "url": "https://visitrockfalls.com/hometown-holidays/"
+      }
+    ]
   },
   {
     "id": "ptown-1",
@@ -69,7 +249,86 @@
     "status": "planned",
     "location": "AroundPtown.com",
     "cost": "75",
-    "notes": "Thanksgiving week, early shoppers. 1,000 characters max + 2 photos. Contact Nathan Stahr."
+    "notes": "Thanksgiving week, early shoppers. 1,000 characters max + 2 photos.",
+    "summary": "A $75 business advertorial on AroundPtown.com, reaching Morrison and nearby towns. Copy is limited to 1,000 characters (about 150 words) plus two photos. This one runs Thanksgiving week for early gift shoppers.",
+    "feature": [
+      "Peppernut Cookies ($6.99)",
+      "Meadow & Honey granola, holiday flavor with clove ($5.99)",
+      "Cookie Lover's Trio ($18)",
+      "Kernza® Lover's Trio ($25)"
+    ],
+    "steps": [
+      "Send the booking email and copy to Nathan",
+      "Send two product photos",
+      "Check the post is live"
+    ],
+    "contacts": [
+      {
+        "name": "Nathan Stahr",
+        "role": "Advertising Director, AroundPtown.com",
+        "email": "nathan@aroundptown.com"
+      }
+    ],
+    "links": [
+      {
+        "label": "AroundPtown.com",
+        "url": "https://aroundptown.com/"
+      }
+    ]
+  },
+  {
+    "id": "sterling-sights-sounds",
+    "title": "Sights & Sounds Kitchen Incubator Showcase",
+    "date": "2026-12-04",
+    "start": "17:00",
+    "end": "20:00",
+    "type": "market",
+    "status": "confirm",
+    "location": "6 East 4th St, Sterling, IL",
+    "address": "6 E 4th St, Sterling, IL 61081",
+    "cost": "",
+    "notes": "Evening pop-up in an empty storefront on the parade route, next to the tree lighting. Times are based on past years.",
+    "summary": "The Kitchen Incubator's pop-up market at Sterling's Sights & Sounds, the kickoff of the Christmas season downtown. It's in the empty storefront at 6 East 4th Street, between Sterling Barber Shop and Brito's Mexican Restaurant, right on the parade route and steps from the tree Santa lights. Expect very heavy foot traffic, and the parade is back this year. Bring marketing materials and small, no-fuss items to sample and sell. In past years the evening ran from 5 PM to fireworks at 8 PM; confirm this year's times with Krista.",
+    "feature": [
+      "Peppernut Cookies ($6.99)",
+      "Chocolate Chip and Snickerdoodle Cookies ($6.99)",
+      "Cookie Lover's Trio ($18)",
+      "Meadow & Honey granola, holiday flavor with clove ($5.99)"
+    ],
+    "bring": [
+      "Small table and tablecloth",
+      "Card reader and phone, both charged",
+      "Lots of samples; it will be busy",
+      "Price signs",
+      "QR code sign for 40centurygrain.com",
+      "Flyers or cards about local pickup",
+      "Bags and a small cash float",
+      "Warm layers; the door will be open"
+    ],
+    "steps": [
+      "Confirm our spot with Krista",
+      "Confirm setup time and whether we can sell",
+      "Pack extra cookie stock",
+      "Arrive early; the parade route closes streets"
+    ],
+    "contacts": [
+      {
+        "name": "Krista Morthland",
+        "role": "Director, The Kitchen Incubator",
+        "email": "kmorthland@sterlingdevelopment.org"
+      },
+      {
+        "name": "Sterling Main Street",
+        "role": "Sights & Sounds organizer",
+        "phone": "815-626-8610"
+      }
+    ],
+    "links": [
+      {
+        "label": "Seasonal Sights & Sounds",
+        "url": "https://sterlingmainstreet.org/events/seasonal-sights-sounds"
+      }
+    ]
   },
   {
     "id": "svacc-mon-1",
@@ -81,7 +340,24 @@
     "status": "planned",
     "location": "Sauk Valley Area Chamber",
     "cost": "25",
-    "notes": ""
+    "notes": "",
+    "summary": "A $25 spot in the Chamber's Monday group email to members and local businesses. Keeps us in front of gift buyers through December.",
+    "feature": [
+      "Cookie Lover's Trio ($18)",
+      "Kernza® Lover's Trio ($25)"
+    ],
+    "steps": [
+      "Book with the Chamber",
+      "Send a short blurb and one photo"
+    ],
+    "contacts": [
+      {
+        "name": "Sauk Valley Area Chamber",
+        "role": "Group blasts",
+        "phone": "815-625-2400"
+      }
+    ],
+    "links": []
   },
   {
     "id": "ptown-2",
@@ -93,7 +369,29 @@
     "status": "planned",
     "location": "AroundPtown.com",
     "cost": "75",
-    "notes": "Last-minute shoppers."
+    "notes": "Last-minute shoppers.",
+    "summary": "A second $75 AroundPtown advertorial for last-minute shoppers. Mention local pickup so people know they can still get gifts in time.",
+    "feature": [
+      "Bundles: ready to wrap",
+      "Local pickup in Sterling"
+    ],
+    "steps": [
+      "Send updated copy and photos to Nathan",
+      "Check the post is live"
+    ],
+    "contacts": [
+      {
+        "name": "Nathan Stahr",
+        "role": "Advertising Director, AroundPtown.com",
+        "email": "nathan@aroundptown.com"
+      }
+    ],
+    "links": [
+      {
+        "label": "AroundPtown.com",
+        "url": "https://aroundptown.com/"
+      }
+    ]
   },
   {
     "id": "svacc-mon-2",
@@ -105,7 +403,20 @@
     "status": "planned",
     "location": "Sauk Valley Area Chamber",
     "cost": "25",
-    "notes": ""
+    "notes": "",
+    "summary": "A $25 spot in the Chamber's Monday group email.",
+    "steps": [
+      "Book with the Chamber",
+      "Send a short blurb and one photo"
+    ],
+    "contacts": [
+      {
+        "name": "Sauk Valley Area Chamber",
+        "role": "Group blasts",
+        "phone": "815-625-2400"
+      }
+    ],
+    "links": []
   },
   {
     "id": "svacc-mon-3",
@@ -117,42 +428,19 @@
     "status": "planned",
     "location": "Sauk Valley Area Chamber",
     "cost": "25",
-    "notes": ""
-  },
-  {
-    "id": "krista-reply",
-    "title": "Tell Krista we're in for the Sterling showcase",
-    "date": "2026-11-04",
-    "start": "",
-    "end": "",
-    "type": "task",
-    "status": "planned",
-    "location": "kmorthland@sterlingdevelopment.org",
-    "cost": "",
-    "notes": "Space is limited and fills quickly. She adds participants to Main Street's info listing."
-  },
-  {
-    "id": "sterling-mainstreet",
-    "title": "Call Sterling Main Street about indoor market space",
-    "date": "2026-11-04",
-    "start": "",
-    "end": "",
-    "type": "task",
-    "status": "planned",
-    "location": "815-626-8610",
-    "cost": "",
-    "notes": "Say we're a Kitchen Incubator client. They're usually full; ask to join the waiting list."
-  },
-  {
-    "id": "sterling-sights-sounds",
-    "title": "Sights & Sounds Kitchen Incubator Showcase",
-    "date": "2026-12-04",
-    "start": "",
-    "end": "",
-    "type": "market",
-    "status": "confirm",
-    "location": "6 East 4th St, Sterling, IL",
-    "cost": "",
-    "notes": "Evening pop-up in an empty storefront on the parade route, next to the tree lighting (between Sterling Barber Shop and Brito's). Very heavy foot traffic. Bring marketing info and small, no-fuss items to sample and sell. Start time TBD."
+    "notes": "",
+    "summary": "The last Chamber group email before Christmas. Push local pickup and ready-to-wrap bundles.",
+    "steps": [
+      "Book with the Chamber",
+      "Send a short blurb and one photo"
+    ],
+    "contacts": [
+      {
+        "name": "Sauk Valley Area Chamber",
+        "role": "Group blasts",
+        "phone": "815-625-2400"
+      }
+    ],
+    "links": []
   }
 ]

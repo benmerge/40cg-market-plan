@@ -26,12 +26,12 @@ END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:sentinel-print@40cg-market-plan
-DTSTAMP:20261103T234639Z
+DTSTAMP:20261103T235820Z
 SUMMARY:40CG: Whiteside News Sentinel print ad
 DTSTART;VALUE=DATE:20261009
 DTEND;VALUE=DATE:20261010
 LOCATION:Print holiday gift guide
-DESCRIPTION:Pitch the $25 Kernza Lover's Trio. Asking whether guide space i
- s still open. Contact Jennifer Heintzelman.
+DESCRIPTION:Pitch the $25 Kernza® Lover's Trio. Asking whether guide space
+  is still open. Contact Jennifer Heintzelman. Cost: $Ask for rates
 END:VEVENT
 END:VCALENDAR

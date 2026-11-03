@@ -26,12 +26,11 @@ END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:svacc-book@40cg-market-plan
-DTSTAMP:20261103T234639Z
+DTSTAMP:20261103T235820Z
 SUMMARY:40CG: Book SVACC Exclusive Ad-Blast
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
-LOCATION:Sauk Valley Area Chamber
-DESCRIPTION:Non-member rate. Check whether it's booked: saukvalleyareachamb
- er.com/marketing-opportunities Cost: $100
+LOCATION:Sauk Valley Area Chamber of Commerce
+DESCRIPTION:Non-member rate. Check whether it's booked. Cost: $100
 END:VEVENT
 END:VCALENDAR

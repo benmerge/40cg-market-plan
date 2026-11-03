@@ -26,12 +26,12 @@ END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:ptown-1@40cg-market-plan
-DTSTAMP:20261103T234639Z
+DTSTAMP:20261103T235820Z
 SUMMARY:40CG: AroundPtown advertorial #1
 DTSTART;VALUE=DATE:20261123
 DTEND;VALUE=DATE:20261124
 LOCATION:AroundPtown.com
 DESCRIPTION:Thanksgiving week\, early shoppers. 1\,000 characters max + 2 p
- hotos. Contact Nathan Stahr. Cost: $75
+ hotos. Cost: $75
 END:VEVENT
 END:VCALENDAR

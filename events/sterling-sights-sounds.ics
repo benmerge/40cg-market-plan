@@ -26,15 +26,13 @@ END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:sterling-sights-sounds@40cg-market-plan
-DTSTAMP:20261103T234639Z
+DTSTAMP:20261103T235820Z
 SUMMARY:40CG: Sights & Sounds Kitchen Incubator Showcase
-DTSTART;VALUE=DATE:20261204
-DTEND;VALUE=DATE:20261205
+DTSTART;TZID=America/Chicago:20261204T170000
+DTEND;TZID=America/Chicago:20261204T200000
 LOCATION:6 East 4th St\, Sterling\, IL
 DESCRIPTION:Evening pop-up in an empty storefront on the parade route\, nex
- t to the tree lighting (between Sterling Barber Shop and Brito's). Very he
- avy foot traffic. Bring marketing info and small\, no-fuss items to sample
-  and sell. Start time TBD.
+ t to the tree lighting. Times are based on past years.
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Booth tomorrow

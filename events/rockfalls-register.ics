@@ -26,12 +26,12 @@ END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:rockfalls-register@40cg-market-plan
-DTSTAMP:20261103T234639Z
+DTSTAMP:20261103T235820Z
 SUMMARY:40CG: Register Rock Falls booth
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
-LOCATION:rockfallschamber.com/hometownholidays
+LOCATION:Rock Falls Chamber of Commerce
 DESCRIPTION:Non-member booth is $25 ($27 online). Check whether registratio
- n went through. Questions: 815-625-4500. Cost: $27
+ n went through. Cost: $27
 END:VEVENT
 END:VCALENDAR

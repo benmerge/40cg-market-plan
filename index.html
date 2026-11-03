@@ -126,6 +126,38 @@ a{color:var(--corn)}
 .contact .addr{font-family:var(--mono);font-size:12.5px;user-select:all;-webkit-user-select:all;word-break:break-all}
 .note{font-size:13.5px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
 footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+
+/* Event detail sheet */
+.ev{cursor:pointer;text-align:left;width:100%;font:inherit;color:inherit}
+.ev:hover{border-color:var(--muted)}
+.ev .more{font-size:12.5px;font-weight:600;color:var(--wheat)}
+.next{cursor:pointer}
+.scrim{position:fixed;inset:0;background:rgba(10,16,18,.45);z-index:20}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:21;max-height:92vh;overflow:auto;-webkit-overflow-scrolling:touch;background:var(--bg);border-radius:16px 16px 0 0;box-shadow:0 -8px 30px rgba(0,0,0,.25);
+  padding:0 max(16px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+@media (min-width:720px){.sheet{left:50%;right:auto;bottom:auto;top:50%;transform:translate(-50%,-50%);width:min(640px,92vw);border-radius:16px;max-height:88vh}}
+.sheet-top{position:sticky;top:0;background:var(--bg);padding:14px 0 10px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;z-index:1}
+.sheet-top h2{font-size:24px}
+.closeb{border:1px solid var(--line);background:var(--surface);border-radius:99px;width:36px;height:36px;font-size:20px;line-height:1;flex:none}
+.sheet .when{font-weight:600;font-size:15px}
+.sheet .where{color:var(--muted);font-size:14px}
+.actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:14px 0 4px}
+.act{display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:12px 10px;font-weight:700;font-size:14px;text-decoration:none;color:var(--ink);text-align:center}
+.act.main{background:var(--corn);border-color:var(--corn);color:var(--bg)}
+.act svg{width:18px;height:18px;flex:none}
+.sec{border-top:1px solid var(--line);padding-top:14px;margin-top:14px;display:grid;gap:8px}
+.sec h3{font-size:13px;font-family:var(--mono);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.sec p{margin:0;max-width:62ch}
+.person{display:grid;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px}
+.person .nm{font-weight:700}
+.person .rl{font-size:13px;color:var(--muted)}
+.person .btnrow{margin-top:2px}
+.person .val{font-family:var(--mono);font-size:12.5px;user-select:all;-webkit-user-select:all;word-break:break-all;color:var(--muted)}
+.feat{margin:0;padding-left:18px;display:grid;gap:3px}
+.step{display:flex;gap:10px;align-items:flex-start;padding:6px 0;font-size:14.5px}
+.step input{margin-top:3px;width:18px;height:18px;accent-color:var(--green);flex:none}
+.step.ok span{text-decoration:line-through;color:var(--muted)}
+.linkrow a{display:block;padding:6px 0;font-weight:600}
 </style>
 </head>
 <body>
@@ -195,7 +227,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
         <p>Everything we sell at 40centurygrain.com, grouped by how it sells. Snacks are what people taste and buy on the spot; mixes and flours are gifts for bakers; bundles are the easy wrapped gift.</p>
         <div class="tier">
           <h3>Snacks · sample these, impulse buys &amp; stocking stuffers</h3>
-          <ul><li><span>Peppernut Cookies <em class="tag">holiday</em></span><span>$6.99</span></li><li><span>Chocolate Chip Cookies</span><span>$6.99</span></li><li><span>Snickerdoodle Cookies</span><span>$6.99</span></li><li><span>Field &amp; Fromage Perennial Granola <em class="tag">savory</em></span><span>$5.99</span></li><li><span>Prairie Sunset Perennial Granola</span><span>$5.99</span></li><li><span>Meadow &amp; Honey Perennial Granola</span><span>$5.99</span></li><li><span>Kernza® Puffs</span><span>$5.99</span></li></ul>
+          <ul><li><span>Peppernut Cookies <em class="tag">holiday</em></span><span>$6.99</span></li><li><span>Chocolate Chip Cookies</span><span>$6.99</span></li><li><span>Snickerdoodle Cookies</span><span>$6.99</span></li><li><span>Field &amp; Fromage Perennial Granola <em class="tag">savory</em></span><span>$5.99</span></li><li><span>Prairie Sunset Perennial Granola</span><span>$5.99</span></li><li><span>Meadow &amp; Honey Perennial Granola <em class="tag">holiday</em></span><span>$5.99</span></li><li><span>Kernza® Puffs</span><span>$5.99</span></li></ul>
         </div>
         <div class="tier">
           <h3>Baking mixes · gifts for bakers</h3>
@@ -209,7 +241,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
           <h3>Bundles · ready to wrap, print ads &amp; business gifts</h3>
           <ul><li><span>Cookie Lover's Trio <span class="small">(peppernut, snickerdoodle, chocolate chip)</span></span><span>$18.00</span></li><li><span>Bread Lover's Bundle <span class="small">(flour + Rugbrød mix)</span></span><span>$17.00</span></li><li><span>Kernza® Lover's Trio</span><span>$25.00</span></li><li><span>Pantry Builder</span><span>$25.00</span></li></ul>
         </div>
-        <div class="note"><b>For holiday booths,</b> lead with Peppernut Cookies (a plains Christmas classic) and the Cookie Lover's Trio. Put out the savory Field &amp; Fromage granola for anyone who doesn't want sweets; it pairs with a cheese board. Mixes can't be sampled, so point bakers to the two bestsellers.</div>
+        <div class="note"><b>For holiday booths,</b> lead with Peppernut Cookies (a plains Christmas classic) and the Cookie Lover's Trio. Sample the Meadow &amp; Honey granola, our holiday flavor with clove. Put out the savory Field &amp; Fromage granola for anyone who doesn't want sweets; it pairs with a cheese board. Mixes can't be sampled, so point bakers to the two bestsellers.</div>
       </div>
 
       <div class="panel">
@@ -243,6 +275,9 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
   <footer id="foot">40 Century Grain · market plan</footer>
 </div>
 
+
+<div class="scrim" id="scrim" hidden></div>
+<section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden></section>
 <script>
 (function(){
   var TYPES={market:"Market / booth",ad:"Ad or promo",task:"To-do"};
@@ -273,6 +308,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
     if(!up.length){box.innerHTML='<div class="days">–<span>days</span></div><div><div class="eyebrow">Next up</div><div>Nothing scheduled yet.</div></div>';return}
     var mk=up.filter(function(e){return e.type==="market"})[0]||up[0];
     var n=Math.round((parse(mk.date)-today)/864e5);
+    box.onclick=function(){openEvent(mk.id)};
     box.innerHTML='<div class="days">'+(n===0?"Today":n)+'<span>'+(n===0?"":n===1?"day":"days")+'</span></div><div><div class="eyebrow">Next '+(mk.type==="market"?"market":"item")+'</div><div style="font-weight:600">'+esc(mk.title)+'</div><div class="small">'+esc(longDate(mk))+(mk.location?" · "+esc(mk.location):"")+'</div></div>';
   }
 
@@ -307,8 +343,9 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
     if(!list.length){el.innerHTML='<div class="empty">'+(state.sel?"Nothing on this day.":"Nothing scheduled yet.")+'</div>';return}
     el.innerHTML=list.map(function(e){
       var d=parse(e.date)||today, past=d<today;
-      return '<article class="ev'+(past&&e.status!=="confirm"?" past":"")+'"><div class="date"><small>'+d.toLocaleDateString(undefined,{month:"short"})+'</small><b>'+d.getDate()+'</b><small>'+d.toLocaleDateString(undefined,{weekday:"short"})+'</small></div><div class="body"><div style="font-weight:600">'+esc(e.title)+'</div><div class="meta">'+esc([e.start?fmtTime(e.start)+(e.end?"–"+fmtTime(e.end):""):"",e.location,e.cost?"$"+e.cost:""].filter(Boolean).join(" · "))+'</div>'+(e.notes?'<div class="meta">'+esc(e.notes)+'</div>':'')+'<div class="pills"><span class="pill t-'+esc(e.type)+'">'+esc(TYPES[e.type]||e.type)+'</span><span class="pill s-'+esc(e.status||"planned")+'">'+esc(STATUS[e.status]||"Planned")+'</span>'+(past?'':'<a class="btn sm" href="events/'+encodeURIComponent(e.id)+'.ics">Add to Calendar</a>')+'</div></div></article>';
+      return '<article class="ev'+(past&&e.status!=="confirm"?" past":"")+'" role="button" tabindex="0" data-open="'+esc(e.id)+'" aria-label="'+esc(e.title)+', details"><div class="date"><small>'+d.toLocaleDateString(undefined,{month:"short"})+'</small><b>'+d.getDate()+'</b><small>'+d.toLocaleDateString(undefined,{weekday:"short"})+'</small></div><div class="body"><div style="font-weight:600">'+esc(e.title)+'</div><div class="meta">'+esc([e.start?fmtTime(e.start)+(e.end?"–"+fmtTime(e.end):""):"",e.location,e.cost?"$"+e.cost:""].filter(Boolean).join(" · "))+'</div>'+(e.notes?'<div class="meta">'+esc(e.notes)+'</div>':'')+'<div class="pills"><span class="pill t-'+esc(e.type)+'">'+esc(TYPES[e.type]||e.type)+'</span><span class="pill s-'+esc(e.status||"planned")+'">'+esc(STATUS[e.status]||"Planned")+'</span>'+'<span class="more">Details ›</span></div></div></article>';
     }).join("");
+    el.querySelectorAll("[data-open]").forEach(function(c){c.onclick=function(){openEvent(c.dataset.open)};c.onkeydown=function(k){if(k.key==="Enter"||k.key===" "){k.preventDefault();openEvent(c.dataset.open)}}});
   }
   $("fUp").onclick=function(){state.filter="up";state.sel=null;render()};
   $("fAll").onclick=function(){state.filter="all";state.sel=null;render()};
@@ -328,11 +365,73 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
   $("resetChecks").onclick=function(){checks.forEach(function(c){c.done=false});saveChecks();renderChecks()};
   loadChecks();
 
+
+  /* Event details */
+  var IC={
+    call:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>',
+    mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>',
+    map:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.1 7-12a7 7 0 0 0-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+    cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>',
+    text:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>'
+  };
+  var STEPKEY="40cg-steps-v1", stepState={};
+  try{stepState=JSON.parse(localStorage.getItem(STEPKEY))||{}}catch(e){stepState={}}
+  function saveSteps(){try{localStorage.setItem(STEPKEY,JSON.stringify(stepState))}catch(e){}}
+  function tel(p){return "tel:"+String(p).replace(/[^\d+]/g,"")}
+  function mapUrl(a){return "https://maps.apple.com/?q="+encodeURIComponent(a)}
+  var lastFocus=null;
+  function openEvent(id,fromHash){
+    var e=state.events.filter(function(x){return x.id===id})[0]; if(!e)return;
+    lastFocus=document.activeElement;
+    var d=parse(e.date), past=d&&d<today;
+    var contacts=e.contacts||[], first=contacts[0]||{};
+    var phone=(contacts.filter(function(c){return c.phone})[0]||{}).phone;
+    var email=(contacts.filter(function(c){return c.email})[0]||{}).email;
+    var acts=[];
+    if(phone)acts.push('<a class="act main" href="'+tel(phone)+'">'+IC.call+'Call</a>');
+    if(email)acts.push('<a class="act'+(phone?'':' main')+'" href="mailto:'+esc(email)+'?subject='+encodeURIComponent("40 Century Grain: "+e.title)+'">'+IC.mail+'Email</a>');
+    if(e.address)acts.push('<a class="act" href="'+mapUrl(e.address)+'" target="_blank" rel="noopener">'+IC.map+'Directions</a>');
+    if(!past)acts.push('<a class="act" href="events/'+encodeURIComponent(e.id)+'.ics">'+IC.cal+'Add to Calendar</a>');
+    var h='<div class="sheet-top"><div><div class="pills" style="margin-bottom:6px"><span class="pill t-'+esc(e.type)+'">'+esc(TYPES[e.type]||e.type)+'</span><span class="pill s-'+esc(e.status||"planned")+'">'+esc(STATUS[e.status]||"Planned")+'</span></div><h2 id="sheetTitle">'+esc(e.title)+'</h2></div><button class="closeb" id="closeSheet" aria-label="Close">×</button></div>';
+    h+='<div class="when">'+esc(d?d.toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"}):"")+(e.start?" · "+fmtTime(e.start)+(e.end?"–"+fmtTime(e.end):""):"")+'</div>';
+    h+='<div class="where">'+esc([e.location,e.cost?(/^\d/.test(e.cost)?"$"+e.cost:e.cost):""].filter(Boolean).join(" · "))+'</div>';
+    if(acts.length)h+='<div class="actions">'+acts.join("")+'</div>';
+    if(e.summary||e.notes)h+='<div class="sec"><h3>About</h3><p>'+esc(e.summary||e.notes)+'</p>'+(e.summary&&e.notes&&e.summary.indexOf(e.notes)<0?'<p class="small">'+esc(e.notes)+'</p>':'')+'</div>';
+    if(e.steps&&e.steps.length){
+      var st=stepState[e.id]||{};
+      h+='<div class="sec"><h3>To do</h3>'+e.steps.map(function(s,i){return'<label class="step'+(st[i]?" ok":"")+'"><input type="checkbox" data-step="'+i+'"'+(st[i]?" checked":"")+'><span>'+esc(s)+'</span></label>'}).join("")+'<div class="small">Ticks are saved on this phone.</div></div>';
+    }
+    if(e.feature&&e.feature.length)h+='<div class="sec"><h3>Products to feature</h3><ul class="feat">'+e.feature.map(function(f){return'<li>'+esc(f)+'</li>'}).join("")+'</ul></div>';
+    if(e.bring&&e.bring.length)h+='<div class="sec"><h3>What to bring</h3><ul class="feat">'+e.bring.map(function(f){return'<li>'+esc(f)+'</li>'}).join("")+'</ul></div>';
+    if(contacts.length)h+='<div class="sec"><h3>Contacts</h3>'+contacts.map(function(c){
+      var b=[];
+      if(c.phone){b.push('<a class="btn sm primary" href="'+tel(c.phone)+'">Call</a>');b.push('<a class="btn sm" href="sms:'+String(c.phone).replace(/[^\d+]/g,"")+'">Text</a>')}
+      if(c.email)b.push('<a class="btn sm'+(c.phone?'':' primary')+'" href="mailto:'+esc(c.email)+'?subject='+encodeURIComponent("40 Century Grain: "+e.title)+'">Email</a>');
+      var v=[c.phone,c.email].filter(Boolean);
+      return'<div class="person"><div><div class="nm">'+esc(c.name)+'</div>'+(c.role?'<div class="rl">'+esc(c.role)+'</div>':'')+'</div>'+(v.length?'<div class="val">'+v.map(esc).join("<br>")+'</div>':'')+(b.length?'<div class="btnrow">'+b.join("")+'</div>':'')+'</div>'}).join("")+'</div>';
+    if(e.address)h+='<div class="sec"><h3>Address</h3><p>'+esc(e.address)+'</p><div class="btnrow"><a class="btn sm" href="'+mapUrl(e.address)+'" target="_blank" rel="noopener">Open in Maps</a><a class="btn sm" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(e.address)+'" target="_blank" rel="noopener">Google Maps</a></div></div>';
+    if(e.links&&e.links.length)h+='<div class="sec linkrow"><h3>Links</h3>'+e.links.map(function(l){return'<a href="'+esc(l.url)+'" target="_blank" rel="noopener">'+esc(l.label)+' ↗</a>'}).join("")+'</div>';
+    var sh=$("sheet"); sh.innerHTML=h; sh.hidden=false; $("scrim").hidden=false; sh.scrollTop=0;
+    document.body.style.overflow="hidden";
+    sh.querySelectorAll("[data-step]").forEach(function(b){b.onchange=function(){var s=stepState[e.id]=stepState[e.id]||{};s[b.dataset.step]=b.checked;saveSteps();b.parentNode.classList.toggle("ok",b.checked)}});
+    $("closeSheet").onclick=closeEvent; $("closeSheet").focus();
+    if(!fromHash&&location.hash!=="#"+e.id)history.pushState(null,"","#"+e.id);
+  }
+  function closeEvent(fromHash){
+    $("sheet").hidden=true;$("scrim").hidden=true;document.body.style.overflow="";
+    if(fromHash!==true&&location.hash)history.pushState(null,"",location.pathname+location.search);
+    if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  }
+  $("scrim").onclick=closeEvent;
+  document.addEventListener("keydown",function(k){if(k.key==="Escape"&&!$("sheet").hidden)closeEvent()});
+  function syncHash(){var id=location.hash.slice(1);if(id&&state.events.some(function(x){return x.id===id}))openEvent(id,true);else if(!$("sheet").hidden)closeEvent(true)}
+  window.addEventListener("popstate",syncHash);
+  window.addEventListener("hashchange",syncHash);
   function render(){renderNext();renderCal();renderAgenda()}
   render();renderChecks();
 
   fetch("events.json",{cache:"no-cache"}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(list){
-    state.events=list;render();
+    state.events=list;render();syncHash();
   }).catch(function(){
     $("nextUp").innerHTML='<div class="days">–<span>days</span></div><div><div class="eyebrow">Next up</div><div>Couldn\'t load events. Check your connection and reopen the app.</div></div>';
   });

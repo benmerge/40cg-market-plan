@@ -26,11 +26,11 @@ END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:sterling-mainstreet@40cg-market-plan
-DTSTAMP:20261103T234639Z
+DTSTAMP:20261103T235820Z
 SUMMARY:40CG: Call Sterling Main Street about indoor market space
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
-LOCATION:815-626-8610
+LOCATION:Sterling Main Street
 DESCRIPTION:Say we're a Kitchen Incubator client. They're usually full\; as
  k to join the waiting list.
 END:VEVENT
