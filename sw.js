@@ -1,6 +1,6 @@
 // Offline support: the app shell is cached; events are fetched fresh when online
 // and fall back to the last saved copy when offline.
-const CACHE = "40cg-v2";
+const CACHE = "40cg-v3";
 const SHELL = ["./", "index.html", "manifest.webmanifest", "events.json",
   "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png"];
 

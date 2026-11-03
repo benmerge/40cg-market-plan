@@ -109,6 +109,7 @@ a{color:var(--corn)}
 .tier{border-top:1px solid var(--line);padding-top:10px;display:grid;gap:4px}
 .tier ul{margin:0;padding:0;list-style:none;display:grid;gap:2px}
 .tier li{display:flex;justify-content:space-between;gap:12px;font-size:14px}
+.tier em.tag{font-style:normal;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;background:var(--wheat-soft);color:var(--wheat);border-radius:99px;padding:1px 6px;margin-left:4px;vertical-align:1px}
 .tier li span:last-child{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .checks{display:grid}
 .check{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--line);font-size:14px}
@@ -134,6 +135,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
     <div class="btnrow">
       <a class="btn primary" id="subscribe" href="events.ics">Subscribe in Apple Calendar</a>
       <a class="btn ghost" href="events.ics" download>Download all (.ics)</a>
+      <a class="btn ghost" href="https://40centurygrain.com" target="_blank" rel="noopener">Our shop</a>
     </div>
   </header>
 
@@ -182,20 +184,25 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
     <div class="eyebrow" style="margin-bottom:6px">Guidance</div>
     <div class="guide">
       <div class="panel">
-        <h2>What to put out front</h2>
-        <p>Match the product to where people meet us. Small items sell at booths and in online ads; bundles are for print and business gifting.</p>
+        <h2>Our lineup</h2>
+        <p>Everything we sell at 40centurygrain.com, grouped by how it sells. Snacks are what people taste and buy on the spot; mixes and flours are gifts for bakers; bundles are the easy wrapped gift.</p>
         <div class="tier">
-          <h3>Stocking stuffers · digital ads &amp; impulse buys</h3>
-          <ul><li><span>Field &amp; Fromage Perennial Granola</span><span>$5.99</span></li><li><span>Chocolate Chip Cookies</span><span>$6.99</span></li></ul>
+          <h3>Snacks · sample these, impulse buys &amp; stocking stuffers</h3>
+          <ul><li><span>Peppernut Cookies <em class="tag">holiday</em></span><span>$6.99</span></li><li><span>Chocolate Chip Cookies</span><span>$6.99</span></li><li><span>Snickerdoodle Cookies</span><span>$6.99</span></li><li><span>Field &amp; Fromage Perennial Granola <em class="tag">savory</em></span><span>$5.99</span></li><li><span>Prairie Sunset Perennial Granola</span><span>$5.99</span></li><li><span>Meadow &amp; Honey Perennial Granola</span><span>$5.99</span></li><li><span>Kernza® Puffs</span><span>$5.99</span></li></ul>
         </div>
         <div class="tier">
-          <h3>Mid-range · lifestyle gift guides</h3>
-          <ul><li><span>Blue Corn &amp; Kernza Hush Puppy Mix</span><span>$9.99</span></li><li><span>Kernza Miso Cookie Mix</span><span>$10.49</span></li></ul>
+          <h3>Baking mixes · gifts for bakers</h3>
+          <ul><li><span>Kernza® Bran Muffin Mix with Chocolate Chips <em class="tag">bestseller</em></span><span>$10.49</span></li><li><span>Rolled Kernza® &amp; Raisin Cookie Mix <em class="tag">bestseller</em></span><span>$10.49</span></li><li><span>Kernza® Miso Cookie Mix</span><span>$10.49</span></li><li><span>Blue Corn &amp; Kernza® Hush Puppy Mix</span><span>$9.99</span></li><li><span>Rugbrød Nordic Rye Bread Mix</span><span>$11.99</span></li><li><span>Perennial Brownie Mix</span><span>$12.99</span></li><li><span>Perennial Pancake Mix</span><span>$13.99</span></li></ul>
         </div>
         <div class="tier">
-          <h3>Premium bundles · print &amp; corporate gifts</h3>
-          <ul><li><span>Bread Lover's Bundle</span><span>$17.00</span></li><li><span>Cookie Lover's Trio</span><span>$18.00</span></li><li><span>Kernza Lover's Trio</span><span>$25.00</span></li></ul>
+          <h3>Flours</h3>
+          <ul><li><span>Perennial Blend™ Flour</span><span>$8.00</span></li><li><span>Maslin Flour</span><span>$8.00</span></li></ul>
         </div>
+        <div class="tier">
+          <h3>Bundles · ready to wrap, print ads &amp; business gifts</h3>
+          <ul><li><span>Cookie Lover's Trio <span class="small">(peppernut, snickerdoodle, chocolate chip)</span></span><span>$18.00</span></li><li><span>Bread Lover's Bundle <span class="small">(flour + Rugbrød mix)</span></span><span>$17.00</span></li><li><span>Kernza® Lover's Trio</span><span>$25.00</span></li><li><span>Pantry Builder</span><span>$25.00</span></li></ul>
+        </div>
+        <div class="note"><b>For holiday booths,</b> lead with Peppernut Cookies (a plains Christmas classic) and the Cookie Lover's Trio. Put out the savory Field &amp; Fromage granola for anyone who doesn't want sweets; it pairs with a cheese board. Mixes can't be sampled, so point bakers to the two bestsellers.</div>
       </div>
 
       <div class="panel">
@@ -211,7 +218,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
 
       <div class="panel">
         <h2>Running a booth</h2>
-        <div class="note"><b>Sample, then sell.</b> Hand out a taste, mention the one product that fits the season, and point to the bundles for gifts.</div>
+        <div class="note"><b>Sample, then sell.</b> Hand out a cookie or a pinch of granola, mention the one product that fits the season, and point to the bundles for gifts. Anything we don't have on the table is at 40centurygrain.com.</div>
         <div class="note"><b>Split the jobs.</b> One person samples and talks; the other runs the card reader and restocks. Swap every hour.</div>
         <div class="note"><b>Local pickup.</b> Customers can pick up scheduled orders at the Kitchen Incubator, 1741 Industrial Drive, Sterling. No retail sales there, pickups only.</div>
         <div class="note"><b>After each event,</b> jot down what sold out, what people asked for, and how many samples went out.</div>
