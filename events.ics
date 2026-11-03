@@ -26,7 +26,7 @@ END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:sentinel-print@40cg-market-plan
-DTSTAMP:20261103T225531Z
+DTSTAMP:20261103T232955Z
 SUMMARY:40CG: Whiteside News Sentinel print ad
 DTSTART;VALUE=DATE:20261009
 DTEND;VALUE=DATE:20261010
@@ -36,7 +36,7 @@ DESCRIPTION:Pitch the $25 Kernza Lover's Trio. Asking whether guide space i
 END:VEVENT
 BEGIN:VEVENT
 UID:svacc-book@40cg-market-plan
-DTSTAMP:20261103T225531Z
+DTSTAMP:20261103T232955Z
 SUMMARY:40CG: Book SVACC Exclusive Ad-Blast
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
@@ -46,7 +46,7 @@ DESCRIPTION:Non-member rate. Check whether it's booked: saukvalleyareachamb
 END:VEVENT
 BEGIN:VEVENT
 UID:rockfalls-register@40cg-market-plan
-DTSTAMP:20261103T225531Z
+DTSTAMP:20261103T232955Z
 SUMMARY:40CG: Register Rock Falls booth
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
@@ -56,7 +56,7 @@ DESCRIPTION:Non-member booth is $25 ($27 online). Check whether registratio
 END:VEVENT
 BEGIN:VEVENT
 UID:svacc-send@40cg-market-plan
-DTSTAMP:20261103T225531Z
+DTSTAMP:20261103T232955Z
 SUMMARY:40CG: SVACC Ad-Blast goes out
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
@@ -66,7 +66,7 @@ DESCRIPTION:Corporate gifting push: lead with the bundles. Exact send date
 END:VEVENT
 BEGIN:VEVENT
 UID:rockfalls-walk@40cg-market-plan
-DTSTAMP:20261103T225531Z
+DTSTAMP:20261103T232955Z
 SUMMARY:40CG: Rock Falls Christmas Walk booth
 DTSTART;TZID=America/Chicago:20261120T170000
 DTEND;TZID=America/Chicago:20261120T200000
@@ -86,7 +86,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ptown-1@40cg-market-plan
-DTSTAMP:20261103T225531Z
+DTSTAMP:20261103T232955Z
 SUMMARY:40CG: AroundPtown advertorial #1
 DTSTART;VALUE=DATE:20261123
 DTEND;VALUE=DATE:20261124
@@ -96,7 +96,7 @@ DESCRIPTION:Thanksgiving week\, early shoppers. 1\,000 characters max + 2 p
 END:VEVENT
 BEGIN:VEVENT
 UID:svacc-mon-1@40cg-market-plan
-DTSTAMP:20261103T225531Z
+DTSTAMP:20261103T232955Z
 SUMMARY:40CG: SVACC Monday group blast
 DTSTART;VALUE=DATE:20261207
 DTEND;VALUE=DATE:20261208
@@ -105,7 +105,7 @@ DESCRIPTION:Cost: $25
 END:VEVENT
 BEGIN:VEVENT
 UID:ptown-2@40cg-market-plan
-DTSTAMP:20261103T225531Z
+DTSTAMP:20261103T232955Z
 SUMMARY:40CG: AroundPtown advertorial #2
 DTSTART;VALUE=DATE:20261214
 DTEND;VALUE=DATE:20261215
@@ -114,7 +114,7 @@ DESCRIPTION:Last-minute shoppers. Cost: $75
 END:VEVENT
 BEGIN:VEVENT
 UID:svacc-mon-2@40cg-market-plan
-DTSTAMP:20261103T225531Z
+DTSTAMP:20261103T232955Z
 SUMMARY:40CG: SVACC Monday group blast
 DTSTART;VALUE=DATE:20261214
 DTEND;VALUE=DATE:20261215
@@ -123,11 +123,53 @@ DESCRIPTION:Cost: $25
 END:VEVENT
 BEGIN:VEVENT
 UID:svacc-mon-3@40cg-market-plan
-DTSTAMP:20261103T225531Z
+DTSTAMP:20261103T232955Z
 SUMMARY:40CG: SVACC Monday group blast
 DTSTART;VALUE=DATE:20261221
 DTEND;VALUE=DATE:20261222
 LOCATION:Sauk Valley Area Chamber
 DESCRIPTION:Cost: $25
+END:VEVENT
+BEGIN:VEVENT
+UID:krista-reply@40cg-market-plan
+DTSTAMP:20261103T232955Z
+SUMMARY:40CG: Tell Krista we're in for the Sterling showcase
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+LOCATION:kmorthland@sterlingdevelopment.org
+DESCRIPTION:Space is limited and fills quickly. She adds participants to Ma
+ in Street's info listing.
+END:VEVENT
+BEGIN:VEVENT
+UID:sterling-mainstreet@40cg-market-plan
+DTSTAMP:20261103T232955Z
+SUMMARY:40CG: Call Sterling Main Street about indoor market space
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+LOCATION:815-626-8610
+DESCRIPTION:Say we're a Kitchen Incubator client. They're usually full\; as
+ k to join the waiting list.
+END:VEVENT
+BEGIN:VEVENT
+UID:sterling-sights-sounds@40cg-market-plan
+DTSTAMP:20261103T232955Z
+SUMMARY:40CG: Sights & Sounds Kitchen Incubator Showcase
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261205
+LOCATION:6 East 4th St\, Sterling\, IL
+DESCRIPTION:Evening pop-up in an empty storefront on the parade route\, nex
+ t to the tree lighting (between Sterling Barber Shop and Brito's). Very he
+ avy foot traffic. Bring marketing info and small\, no-fuss items to sample
+  and sell. Start time TBD.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Booth tomorrow
+TRIGGER:-P1D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Booth in 2 hours
+TRIGGER:-PT2H
+END:VALARM
 END:VEVENT
 END:VCALENDAR
