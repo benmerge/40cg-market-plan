@@ -92,6 +92,13 @@ a{color:var(--corn)}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
 .seg button{border:0;background:transparent;padding:6px 10px;font-size:13px}
 .seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.filters{display:grid;gap:8px}
+.filters input[type=search]{width:100%;min-width:0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);font:inherit;font-size:16px;color:var(--ink)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:99px;padding:6px 12px;font:inherit;font-size:13px;font-weight:600;min-height:34px}
+.chip-btn[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.fcount{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+.fcount button{border:0;background:transparent;color:var(--wheat);font:inherit;font-weight:700;padding:4px 0}
 .ev{display:grid;grid-template-columns:52px 1fr;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px}
 .ev .date{font-family:var(--mono);text-align:center;border-right:1px solid var(--line);padding-right:10px}
 .ev .date b{display:block;font-family:var(--display);font-size:24px;line-height:1}
@@ -215,6 +222,22 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
           <button id="fAll" aria-pressed="false">All</button>
         </div>
       </div>
+      <div class="filters">
+        <input id="q" type="search" placeholder="Search events, places, people" aria-label="Search events" autocomplete="off">
+        <div class="chips" role="group" aria-label="Filter by type">
+          <button class="chip-btn" data-type="all" aria-pressed="true">All types</button>
+          <button class="chip-btn" data-type="market" aria-pressed="false">Markets &amp; booths</button>
+          <button class="chip-btn" data-type="ad" aria-pressed="false">Ads</button>
+          <button class="chip-btn" data-type="task" aria-pressed="false">To-dos</button>
+        </div>
+        <div class="chips" role="group" aria-label="Filter by status">
+          <button class="chip-btn" data-status="all" aria-pressed="true">Any status</button>
+          <button class="chip-btn" data-status="confirm" aria-pressed="false">Needs confirming</button>
+          <button class="chip-btn" data-status="planned" aria-pressed="false">Planned</button>
+          <button class="chip-btn" data-status="done" aria-pressed="false">Done</button>
+        </div>
+        <div class="fcount" id="fcount" hidden><span id="fcountText"></span><button id="fclear" type="button">Clear filters</button></div>
+      </div>
       <div id="agendaList" class="agenda"></div>
     </div>
   </section>
@@ -283,7 +306,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
   var TYPES={market:"Market / booth",ad:"Ad or promo",task:"To-do"};
   var STATUS={planned:"Planned",confirm:"Confirm",done:"Done"};
   var DEFAULT_CHECKS=["Table, tablecloth and banner","Card reader charged, phone charged, backup cable","Price signs for every product","Sample cups, napkins, tongs, hand sanitizer","Stock: granola, cookies, mixes, bundles","Bags and small cash float","Extension cord and booth light (evening events)"];
-  var state={events:[],month:null,sel:null,filter:"up"};
+  var state={events:[],month:null,sel:null,filter:"up",type:"all",status:"all",q:""};
   var today=new Date(); today.setHours(0,0,0,0);
   state.month=new Date(today.getFullYear(),today.getMonth(),1);
   var $=function(id){return document.getElementById(id)};
@@ -312,11 +335,22 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
     box.innerHTML='<div class="days">'+(n===0?"Today":n)+'<span>'+(n===0?"":n===1?"day":"days")+'</span></div><div><div class="eyebrow">Next '+(mk.type==="market"?"market":"item")+'</div><div style="font-weight:600">'+esc(mk.title)+'</div><div class="small">'+esc(longDate(mk))+(mk.location?" · "+esc(mk.location):"")+'</div></div>';
   }
 
+  function filtering(){return state.type!=="all"||state.status!=="all"||state.q!==""}
+  function matches(e){
+    if(state.type!=="all"&&e.type!==state.type)return false;
+    if(state.status!=="all"&&(e.status||"planned")!==state.status)return false;
+    if(state.q){
+      var hay=[e.title,e.location,e.address,e.notes,e.summary].concat((e.contacts||[]).map(function(c){return [c.name,c.role,c.phone,c.email].join(" ")})).concat(e.feature||[]).join(" ").toLowerCase();
+      var words=state.q.toLowerCase().split(/\s+/).filter(Boolean);
+      for(var i=0;i<words.length;i++)if(hay.indexOf(words[i])<0)return false;
+    }
+    return true;
+  }
   function renderCal(){
     var m=state.month,g=$("calGrid");
     $("monthLabel").textContent=m.toLocaleDateString(undefined,{month:"long",year:"numeric"});
     var start=new Date(m);start.setDate(1-m.getDay());
-    var byDay={};state.events.forEach(function(e){(byDay[e.date]=byDay[e.date]||[]).push(e)});
+    var byDay={};state.events.filter(matches).forEach(function(e){(byDay[e.date]=byDay[e.date]||[]).push(e)});
     var h=["S","M","T","W","T","F","S"].map(function(d){return'<div class="dow">'+d+'</div>'}).join("");
     for(var i=0;i<42;i++){
       var d=new Date(start);d.setDate(start.getDate()+i);var k=iso(d);
@@ -337,16 +371,25 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
     if(state.sel){list=list.filter(function(e){return e.date===state.sel});$("agendaTitle").textContent=parse(state.sel).toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"})}
     else if(state.filter==="up"){list=list.filter(function(e){var d=parse(e.date);return (d&&d>=today)||e.status==="confirm"});$("agendaTitle").textContent="Coming up"}
     else $("agendaTitle").textContent="Everything";
+    var before=list.length; list=list.filter(matches);
+    $("fcount").hidden=!filtering();
+    $("fcountText").textContent="Showing "+list.length+" of "+before;
+    document.querySelectorAll("[data-type]").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.type===state.type))});
+    document.querySelectorAll("[data-status]").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.status===state.status))});
     $("fUp").setAttribute("aria-pressed",String(state.filter==="up"&&!state.sel));
     $("fAll").setAttribute("aria-pressed",String(state.filter==="all"&&!state.sel));
     var el=$("agendaList");
-    if(!list.length){el.innerHTML='<div class="empty">'+(state.sel?"Nothing on this day.":"Nothing scheduled yet.")+'</div>';return}
+    if(!list.length){el.innerHTML='<div class="empty">'+(filtering()?"Nothing matches these filters. Try All types or clear the search.":state.sel?"Nothing on this day.":"Nothing scheduled yet.")+'</div>';return}
     el.innerHTML=list.map(function(e){
       var d=parse(e.date)||today, past=d<today;
       return '<article class="ev'+(past&&e.status!=="confirm"?" past":"")+'" role="button" tabindex="0" data-open="'+esc(e.id)+'" aria-label="'+esc(e.title)+', details"><div class="date"><small>'+d.toLocaleDateString(undefined,{month:"short"})+'</small><b>'+d.getDate()+'</b><small>'+d.toLocaleDateString(undefined,{weekday:"short"})+'</small></div><div class="body"><div style="font-weight:600">'+esc(e.title)+'</div><div class="meta">'+esc([e.start?fmtTime(e.start)+(e.end?"–"+fmtTime(e.end):""):"",e.location,e.cost?"$"+e.cost:""].filter(Boolean).join(" · "))+'</div>'+(e.notes?'<div class="meta">'+esc(e.notes)+'</div>':'')+'<div class="pills"><span class="pill t-'+esc(e.type)+'">'+esc(TYPES[e.type]||e.type)+'</span><span class="pill s-'+esc(e.status||"planned")+'">'+esc(STATUS[e.status]||"Planned")+'</span>'+'<span class="more">Details ›</span></div></div></article>';
     }).join("");
     el.querySelectorAll("[data-open]").forEach(function(c){c.onclick=function(){openEvent(c.dataset.open)};c.onkeydown=function(k){if(k.key==="Enter"||k.key===" "){k.preventDefault();openEvent(c.dataset.open)}}});
   }
+  document.querySelectorAll("[data-type]").forEach(function(b){b.onclick=function(){state.type=b.dataset.type;render()}});
+  document.querySelectorAll("[data-status]").forEach(function(b){b.onclick=function(){state.status=b.dataset.status;if(state.status==="done")state.filter="all";render()}});
+  var qT; $("q").oninput=function(){clearTimeout(qT);var v=this.value;qT=setTimeout(function(){state.q=v.trim();render()},150)};
+  $("fclear").onclick=function(){state.type="all";state.status="all";state.q="";$("q").value="";render()};
   $("fUp").onclick=function(){state.filter="up";state.sel=null;render()};
   $("fAll").onclick=function(){state.filter="all";state.sel=null;render()};
 
